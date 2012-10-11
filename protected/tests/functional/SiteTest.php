@@ -4,7 +4,7 @@ class SiteTest extends WebTestCase
 {
 	public function testIndex()
 	{
-		$this->open('');
+		$this->open(TEST_BASE_URL);
 		$this->assertTextPresent('Welcome');
 	}
 
@@ -38,7 +38,6 @@ class SiteTest extends WebTestCase
 		$this->clickAndWait("//input[@value='Login']");
 		$this->assertTextNotPresent('Password cannot be blank.');
 		$this->assertTextPresent('Logout');
-
 		// test logout process
 		$this->assertTextNotPresent('Login');
 		$this->clickAndWait('link=Logout (demo)');

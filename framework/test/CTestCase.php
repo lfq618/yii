@@ -8,10 +8,13 @@
  * @license http://www.yiiframework.com/license/
  */
 
-require_once('PHPUnit/Util/Filesystem.php'); // workaround for PHPUnit <= 3.6.11
+spl_autoload_unregister(array('YiiBase','autoload'));
 require_once('PHPUnit/Autoload.php');
-spl_autoload_unregister('phpunit_autoload');
-Yii::registerAutoloader('phpunit_autoload');
+spl_autoload_register(array('YiiBase','autoload'));
+//spl_autoload_unregister('phpunit_autoload');
+//Yii::registerAutoloader('phpunit_autoload'); 
+
+
 
 /**
  * CTestCase is the base class for all test case classes.
