@@ -32,9 +32,9 @@ class User extends TrackStarActiveRecord
      *
      * @return User the static model class
      */
-    public static function model($className = __CLASS__)
+    public static function model($id = null, $className = __CLASS__)
     {
-        return parent::model($className);
+        return parent::model($id, $className);
     }
 
     /**
@@ -136,6 +136,26 @@ class User extends TrackStarActiveRecord
     public function encrypt($value)
     {
         return md5($value);
+    }
+
+    public function behaviour()
+    {
+        return CMap::mergeArray(parent::behaviors(),
+                                array(
+                    'deletable' => array(
+                        'class'     => 'ext.deletable-behavior.DeletableBehavior',
+                        'relations' => array(
+                            'comments' => DeletableBehavior::CASCADE,
+                            'likes'    => DeletableBehavior::CASCADE,
+                        )
+                    )
+                ));
+    }
+    
+    public function onDelete()
+    {
+        var_dump(CComponent::getEventHandlers);
+        return FALSE;
     }
 
 }

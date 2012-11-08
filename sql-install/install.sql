@@ -61,3 +61,29 @@ VALUES
 ('test1@notanaddress.com','Test_User_One', MD5('test1')),
 ('test2@notanaddress.com','Test_User_Two', MD5('test2'))
 ;
+
+CREATE TABLE tbl_comment
+(
+`id` INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`content` TEXT NOT NULL,
+`issue_id` INTEGER,
+`create_time` DATETIME,
+`create_user_id` INTEGER,
+`update_time` DATETIME,
+`update_user_id` INTEGER
+);
+
+ALTER TABLE `tbl_comment` ADD CONSTRAINT `FK_comment_issue` FOREIGN
+KEY (`issue_id`) REFERENCES `tbl_issue` (`id`);
+ALTER TABLE `tbl_comment` ADD CONSTRAINT `FK_comment_author` FOREIGN
+KEY (`create_user_id`) REFERENCES `tbl_user` (`id`);
+
+CREATE TABLE `tbl_sys_message`
+(
+`id` INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+`message` TEXT NOT NULL,
+`create_time` DATETIME,
+`create_user_id` INTEGER,
+`update_time` DATETIME,
+`update_user_id` INTEGER
+);

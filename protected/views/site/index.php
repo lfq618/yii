@@ -1,20 +1,39 @@
 <?php
 /* @var $this SiteController */
 
-$this->pageTitle=Yii::app()->name;
+$this->pageTitle = Yii::app()->name;
 ?>
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<?
+$this->widget('bootstrap.widgets.TbLabel',
+              array(
+    'type'  => 'success', // 'success', 'warning', 'important', 'info' or 'inverse'
+    'label' => 'Success',
+));
+$this->widget('bootstrap.widgets.TbLabel', array(
+'type'=>'warning', // 'success', '', 'important', 'info' or 'inverse'
+'label'=>'warning',
+));
+$this->widget('bootstrap.widgets.TbLabel', array(
+'type'=>'important', // 'success', '', '', 'info' or 'inverse'
+'label'=>'important',
+));
 
+$this->widget('bootstrap.widgets.TbLabel', array(
+ // 'success', '', '', 'info' or 'inverse'
+'label'=>'inverse',
+));
+?>
 <p>Congratulations! You have successfully created your Yii application.</p>
 
 <p>You may change the content of this page by modifying the following two files:</p>
 <ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
+    <li>View file: <code><?php echo __FILE__; ?></code></li>
+    <li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
 </ul>
 
 <p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+    the <a href="http://www.yiiframework.com/doc/">documentation</a>.
+    Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
+    should you have any questions.</p>

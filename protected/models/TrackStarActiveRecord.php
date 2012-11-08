@@ -2,7 +2,18 @@
 
 abstract class TrackStarActiveRecord extends CActiveRecord
 {
-
+    /**
+     * Returns the static model of the specified AR class.
+     *
+     * @param string $className active record class name.
+     *
+     * @return Issue the static model class
+     */
+    public static function model($id = null, $className = __CLASS__)
+    {
+        return ($id != null) ? parent::model($className)->findbyPk($id) : parent::model($className);
+    }
+    
     /**
      * Prepares create_time, create_user_id, update_time and update_user_
       id attributes before performing validation.

@@ -60,3 +60,71 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
+2012/10/12 09:23:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in C:\projects\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 C:\projects\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 C:\projects\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 C:\projects\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 C:\projects\yii\framework\web\auth\CDbAuthManager.php(590): CModule->getComponent('db')
+#4 C:\projects\yii\framework\web\auth\CDbAuthManager.php(60): CDbAuthManager->getDbConnection()
+#5 C:\projects\yii\framework\base\CModule.php(388): CDbAuthManager->init()
+#6 C:\projects\yii\framework\base\CModule.php(104): CModule->getComponent('authManager')
+#7 C:\projects\yii\protected\commands\RbacCommand.php(27): CModule->__get('authManager')
+#8 C:\projects\yii\framework\console\CConsoleCommandRunner.php(68): RbacCommand->run(Array)
+#9 C:\projects\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#10 C:\projects\yii\framework\base\CApplication.php(155): CConsoleApplication->processRequest()
+#11 C:\projects\yii\framework\yiic.php(34): CApplication->run()
+#12 C:\projects\yii\protected\yiic.php(7): require_once('C:\projects\yii...')
+#13 {main}
+---
+2012/10/12 09:48:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'k7715_yii.tbl_migration' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `tbl_migration`.
+2012/10/12 09:48:45 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'primary key (project_id,user_id,role),foreign key (project_id) references tbl_pr' at line 5. The SQL statement executed was: CREATE TABLE `tbl_project_user_role` (
+	`project_id` INTEGER NOT NULL,
+	`user_id` INTEGER NOT NULL,
+	`role` VARCHAR(64) NOT NULL
+) primary key (project_id,user_id,role),foreign key (project_id) references tbl_project (id),foreign key (user_id) references tbl_user (id),foreign key (role) references AuthItem (name).
+2012/10/12 09:48:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'primary key (project_id,user_id,role),foreign key (project_id) references tbl_pr' at line 5. The SQL statement executed was: CREATE TABLE `tbl_project_user_role` (
+	`project_id` INTEGER NOT NULL,
+	`user_id` INTEGER NOT NULL,
+	`role` VARCHAR(64) NOT NULL
+) primary key (project_id,user_id,role),foreign key (project_id) references tbl_project (id),foreign key (user_id) references tbl_user (id),foreign key (role) references AuthItem (name)' in C:\projects\yii\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\projects\yii\framework\db\CDbCommand.php(1251): CDbCommand->execute()
+#1 C:\projects\yii\framework\db\CDbMigration.php(229): CDbCommand->createTable('tbl_project_use...', Array, 'primary key (pr...')
+#2 C:\projects\yii\protected\migrations\m121012_134243_project_user_role.php(18): CDbMigration->createTable('tbl_project_use...', Array, 'primary key (pr...')
+#3 C:\projects\yii\framework\cli\commands\MigrateCommand.php(386): m121012_134243_project_user_role->up()
+#4 C:\projects\yii\framework\cli\commands\MigrateCommand.php(110): MigrateCommand->migrateUp('m121012_134243_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\projects\yii\framework\console\CConsoleCommand.php(173): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\projects\yii\framework\console\CConsoleCommandRunner.php(68): CConsoleCommand->run(Array)
+#8 C:\projects\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 C:\projects\yii\framework\base\CApplication.php(155): CConsoleApplication->processRequest()
+#10 C:\projects\yii\framework\yiic.php(34): CApplication->run()
+#11 C:\projects\yii\protected\yiic.php(7): require_once('C:\projects\yii...')
+#12 {main}
+---
+2012/10/12 09:54:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(project_id,user_id,role),foreign key (project_id) references tbl_project (id),f' at line 4. The SQL statement executed was: CREATE TABLE `tbl_project_user_role` (
+	`project_id` INTEGER NOT NULL,
+	`user_id` INTEGER NOT NULL,
+	`role` VARCHAR(64) NOT NULL primary key (project_id,user_id,role),foreign key (project_id) references tbl_project (id),foreign key (user_id) references tbl_user (id),foreign key (role) references AuthItem (name)
+).
+2012/10/12 09:54:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(project_id,user_id,role),foreign key (project_id) references tbl_project (id),f' at line 4. The SQL statement executed was: CREATE TABLE `tbl_project_user_role` (
+	`project_id` INTEGER NOT NULL,
+	`user_id` INTEGER NOT NULL,
+	`role` VARCHAR(64) NOT NULL primary key (project_id,user_id,role),foreign key (project_id) references tbl_project (id),foreign key (user_id) references tbl_user (id),foreign key (role) references AuthItem (name)
+)' in C:\projects\yii\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\projects\yii\framework\db\CDbCommand.php(1251): CDbCommand->execute()
+#1 C:\projects\yii\framework\db\CDbMigration.php(229): CDbCommand->createTable('tbl_project_use...', Array, NULL)
+#2 C:\projects\yii\protected\migrations\m121012_134243_project_user_role.php(15): CDbMigration->createTable('tbl_project_use...', Array)
+#3 C:\projects\yii\framework\cli\commands\MigrateCommand.php(386): m121012_134243_project_user_role->up()
+#4 C:\projects\yii\framework\cli\commands\MigrateCommand.php(110): MigrateCommand->migrateUp('m121012_134243_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\projects\yii\framework\console\CConsoleCommand.php(173): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\projects\yii\framework\console\CConsoleCommandRunner.php(68): CConsoleCommand->run(Array)
+#8 C:\projects\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 C:\projects\yii\framework\base\CApplication.php(155): CConsoleApplication->processRequest()
+#10 C:\projects\yii\framework\yiic.php(34): CApplication->run()
+#11 C:\projects\yii\protected\yiic.php(7): require_once('C:\projects\yii...')
+#12 {main}
+---

@@ -47,9 +47,9 @@ body
 	font-size: 200%;
 }
 
-#mainmenu
+/*#mainmenu
 {
-	background:white url(bg.gif) repeat-x left top;
+	background:white  repeat-x left top;
 }
 
 #mainmenu ul
@@ -78,9 +78,9 @@ body
 	color: #6399cd;
 	background-color:#EFF4FA;
 	text-decoration:none;
-}
+}*/
 
-div.flash-error, div.flash-notice, div.flash-success
+/*div.flash-error, div.flash-notice, div.flash-success
 {
 	padding:.8em;
 	margin-bottom:1em;
@@ -226,4 +226,4 @@ div.search-form
 .operations li a:hover
 {
 	background: #80CFFF;
-}
+}*/
