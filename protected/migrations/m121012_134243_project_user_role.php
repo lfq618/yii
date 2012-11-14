@@ -20,14 +20,4 @@ class m121012_134243_project_user_role extends CDbMigration
         $this->dropTable('tbl_project_user_role');
     }
 
-    /*
-      // Use safeUp/safeDown to do migration with transaction
-      public function safeUp()
-      {
-      }
-
-      public function safeDown()
-      {
-      }
-     */
 }

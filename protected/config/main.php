@@ -153,6 +153,10 @@ return array(
 				),
 			),
 		),
+		'curl' => array(
+			'class' => 'ext.Curl',
+			'options' => array(/* additional curl options */)
+		),
 	),
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']

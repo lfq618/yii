@@ -26,44 +26,43 @@
             </div><!-- header -->
 
             <div id="mainmenu">
-                <?
-                $this->widget('bootstrap.widgets.TbButtonGroup',
-                              array(
-                    'buttons' => array(
-                        array('label' => 'Home', 'url'   => array('/site/index')),
-                        array('label' => 'Projects',
-                            'items' => array(
-                                array('label' => 'All projects', 'url'   => array('/project')),
-                                array('label' => 'Create New', 'url'   => array('/project/create'))
-                            )
-                        ),
-                        array('label' => 'Grid', 'url'   => array('/grid')),
-                        array('label' => 'About', 'url'   => array('/site/page', 'view' => 'about')),
-                        array('label' => 'Contact', 'url'   => array('/site/contact')),
-                        array('label' => 'Login', 'url'   => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-                        array('label' => 'Logout ('.Yii::app()->user->name.')', 'url'   => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
-                    ),
-                ));
-                ?>
+				<?
+				$this->widget('bootstrap.widgets.TbButtonGroup', array(
+					'buttons' => array(
+						array('label' => 'Home', 'url' => array('/site/index')),
+						array('label' => 'Projects',
+							'items' => array(
+								array('label' => 'All projects', 'url' => array('/project')),
+								array('label' => 'Create New', 'url' => array('/project/create'))
+							)
+						),
+						array('label' => 'Grid', 'url' => array('/grid')),
+						array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
+						array('label' => 'Contact', 'url' => array('/site/contact')),
+						array('label' => 'Console', 'url' => array('/webshell')),
+						array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
+						array('label' => 'Logout ('.Yii::app()->user->name.')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
+					),
+				));
+				?>
 
             </div><!-- mainmenu -->
-            <?php if (isset($this->breadcrumbs)): ?>
-                <?php
-                $this->widget('zii.widgets.CBreadcrumbs',
-                              array(
-                    'links' => $this->breadcrumbs,
-                ));
-                ?><!-- breadcrumbs -->
-            <?php endif ?>
+			<?php if (isset($this->breadcrumbs)): ?>
+				<?php
+				$this->widget('zii.widgets.CBreadcrumbs', array(
+					'links' => $this->breadcrumbs,
+				));
+				?><!-- breadcrumbs -->
+			<?php endif ?>
 
-            <?php echo $content; ?>
+			<?php echo $content; ?>
 
             <div class="clear"></div>
 
             <div id="footer">
                 Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
                 All Rights Reserved.<br/>
-                <?php echo Yii::powered(); ?>
+<?php echo Yii::powered(); ?>
             </div><!-- footer -->
 
         </div><!-- page -->
